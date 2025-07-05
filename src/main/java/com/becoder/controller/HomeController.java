@@ -14,6 +14,7 @@ public class HomeController {
 		String id = request.getSession().getId();
 		return new ResponseEntity<>("Hello, welcome to Becoder = "+id,HttpStatus.OK);
 	}
+	
 
 }
 
