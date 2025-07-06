@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.becoder.dto.UserRequest;
+import com.becoder.model.UserDtls;
 import com.becoder.service.UserService;
 
 @RestController
@@ -19,8 +20,15 @@ public class HomeController {
 	@GetMapping("/")
 	public ResponseEntity<?> getDetails(HttpServletRequest request)
 	{
-		String id = request.getSession().getId();
-		return new ResponseEntity<>("Hello, welcome to Becoder = "+id,HttpStatus.OK);
+		//String id = request.getSession().getId();
+		return new ResponseEntity<>("Hello, welcome to Becoder Dashboard ",HttpStatus.OK);
+	}
+	@GetMapping("/user")
+	public ResponseEntity<?> getUserDetails(HttpServletRequest request)
+	{
+		
+		//String id = request.getSession().getId();
+		return new ResponseEntity<>(userService.getUserDtls(),HttpStatus.OK);
 	}
 	
 	@PostMapping("/login")
